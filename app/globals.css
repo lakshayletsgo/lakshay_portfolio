@@ -56,10 +56,11 @@
   * {
     border-color: hsl(var(--border));
   }
-  /* body {
+  body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
+  /* 
   html {
     scroll-behavior: smooth;
   }
@@ -87,21 +88,21 @@
 }
 
 /* For vertical timeline component */
-.vertical-timeline-element-content {
+/* .vertical-timeline-element-content {
   box-shadow: none !important;
 }
 
 .vertical-timeline::before {
   background: rgba(var(--primary-rgb), 0.2) !important;
 }
- */
+ */ 
 
 
 
- body {
+ /* body {
   @apply bg-background text-foreground font-inter;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-}
+} */
 html {
   scroll-behavior: smooth;
 }
