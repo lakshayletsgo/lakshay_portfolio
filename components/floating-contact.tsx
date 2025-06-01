@@ -29,7 +29,7 @@ export default function FloatingContact() {
                   size="sm"
                   className="border-primary/20 bg-primary/5 hover:bg-primary/10"
                 >
-                  <Link href="mailto:lakshay.goel@example.com">Send Email</Link>
+                  <Link href="mailto:lakshaygoel911@gmail.com">Send Email</Link>
                 </Button>
                 <Button
                   asChild

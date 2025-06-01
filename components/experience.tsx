@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { BriefcaseIcon, MapPinIcon } from "lucide-react"
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
@@ -31,6 +32,14 @@ const experiences = [
 
 export default function Experience() {
   const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null // Prevent theme mismatch on first render
+
   const isDark = theme === "dark"
 
   return (
@@ -67,7 +76,9 @@ export default function Experience() {
                   backdropFilter: "blur(10px)",
                 }}
                 contentArrowStyle={{
-                  borderRight: isDark ? "7px solid rgba(30, 41, 59, 0.8)" : "7px solid rgba(255, 255, 255, 0.8)",
+                  borderRight: isDark
+                    ? "7px solid rgba(30, 41, 59, 0.8)"
+                    : "7px solid rgba(255, 255, 255, 0.8)",
                 }}
                 date={experience.period}
                 iconStyle={{
@@ -86,7 +97,10 @@ export default function Experience() {
                 <p className="mt-3">{experience.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {experience.skills.map((skill) => (
-                    <span key={skill} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
+                    <span
+                      key={skill}
+                      className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                    >
                       {skill}
                     </span>
                   ))}

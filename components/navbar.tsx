@@ -182,7 +182,7 @@ export default function Navbar() {
                   size="sm"
                   className="mt-4 bg-gradient-to-r from-primary to-purple-500 hover:from-primary/90 hover:to-purple-500/90"
                 >
-                  <a href="/resume.pdf" download onClick={() => setIsMenuOpen(false)}>
+                  <a href="/Lakshay_Resume.pdf" download onClick={() => setIsMenuOpen(false)}>
                     Resume
                   </a>
                 </Button>
