@@ -11,12 +11,15 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
   title: "Lakshay Goel | AI/ML & Full Stack Developer",
   description:
     "Personal portfolio of Lakshay Goel, a BTech Computer Science student specializing in AI/ML and Full Stack Development.",
+    viewport: "width=device-width, initial-scale=1",
 }
 
 export default function RootLayout({
@@ -30,7 +33,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
             <Navbar />
-            <div className="flex-1 pt-16 px-4 md:px-8 lg:px-12 xl:px-16">{children}</div>
+            <div className="flex-1 pt-16 px-3 sm:px-4 md:px-8 lg:px-12 xl:px-16">{children}</div>
             <Footer />
           </div>
           <Toaster />

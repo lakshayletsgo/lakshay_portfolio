@@ -52,19 +52,99 @@
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border;
   }
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   html {
     scroll-behavior: smooth;
   }
 
+  /* Enhanced mobile typography */
   @media (max-width: 768px) {
     html {
       cursor: auto;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+
+    .text-xl {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .text-2xl {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .text-3xl {
+      font-size: 1.875rem;
+      font-weight: 800;
+    }
+  }
+
+  /* Enhanced desktop typography */
+  @media (min-width: 769px) {
+    body {
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
     }
   }
 }
@@ -75,6 +155,22 @@
   }
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+
+  /* Mobile-specific utilities */
+  .mobile-heading {
+    @apply text-2xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .mobile-subheading {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  .mobile-body {
+    @apply text-base md:text-lg leading-relaxed;
   }
 }
 
@@ -91,4 +187,12 @@
 
 .vertical-timeline::before {
   background: rgba(var(--primary-rgb), 0.2) !important;
+}
+
+/* Enhanced mobile navbar */
+@media (max-width: 768px) {
+  .navbar-mobile {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
 }
