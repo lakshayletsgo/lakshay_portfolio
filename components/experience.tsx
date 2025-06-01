@@ -54,7 +54,7 @@ export default function Experience() {
 
         <div className="mt-12">
           <VerticalTimeline lineColor={isDark ? "#1e293b" : "#e2e8f0"}>
-            {experiences.map((experience, index) => (
+            {experiences.map((experience) => (
               <VerticalTimelineElement
                 key={experience.title}
                 className="vertical-timeline-element"

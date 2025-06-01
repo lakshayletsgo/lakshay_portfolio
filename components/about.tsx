@@ -111,7 +111,7 @@ export default function About() {
                   transition={{ duration: 0.5, delay: 0.6 }}
                   className="mt-6 flex flex-wrap gap-2"
                 >
-                  {personalTraits.map((trait, index) => (
+                  {personalTraits.map((trait) => (
                     <Badge key={trait} variant="outline" className="bg-primary/10 text-primary">
                       {trait}
                     </Badge>

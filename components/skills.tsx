@@ -4,8 +4,15 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useInView } from "react-intersection-observer"
-import { useTheme } from "next-themes"
+// import { useTheme } from "next-themes"
 
+
+interface SkillBarProps {
+  name: string
+  level: number
+  index: number
+  inView: boolean
+}
 const skillCategories = [
   {
     id: "frontend",
@@ -54,9 +61,8 @@ const skillCategories = [
 ]
 
 // Custom skill bar component
-function SkillBar({ name, level, index, inView }) {
-  const { theme } = useTheme()
-  const isDark = theme === "dark"
+function SkillBar({ name, level, index, inView }: SkillBarProps) {
+// const { theme } = useTheme()
 
   // Generate a gradient color based on the skill level
   const getGradient = () => {
@@ -105,89 +111,89 @@ function SkillBar({ name, level, index, inView }) {
 }
 
 // Circular skill indicator as an alternative visualization
-function CircularSkill({ name, level, index, inView }) {
-  const { theme } = useTheme()
-  const isDark = theme === "dark"
+// function CircularSkill({ name, level, index, inView }: SkillBarProps) {
+// const { theme } = useTheme()
+//   const isDark = theme === "dark"
 
-  // Calculate the circle's circumference
-  const size = 80
-  const strokeWidth = 6
-  const radius = (size - strokeWidth) / 2
-  const circumference = 2 * Math.PI * radius
+//   // Calculate the circle's circumference
+//   const size = 80
+//   const strokeWidth = 6
+//   const radius = (size - strokeWidth) / 2
+//   const circumference = 2 * Math.PI * radius
 
-  // Calculate the dash offset based on the skill level
-  const offset = circumference - (level / 100) * circumference
+//   // Calculate the dash offset based on the skill level
+//   const offset = circumference - (level / 100) * circumference
 
-  // Generate a color based on the skill level
-  const getColor = () => {
-    if (level >= 90) return "text-purple-500"
-    if (level >= 80) return "text-primary"
-    if (level >= 70) return "text-blue-500"
-    return "text-cyan-500"
-  }
+//   // Generate a color based on the skill level
+//   const getColor = () => {
+//     if (level >= 90) return "text-purple-500"
+//     if (level >= 80) return "text-primary"
+//     if (level >= 70) return "text-blue-500"
+//     return "text-cyan-500"
+//   }
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.8 }}
-      transition={{ duration: 0.5, delay: 0.1 * index }}
-      className="flex flex-col items-center justify-center"
-    >
-      <div className="relative h-20 w-20">
-        {/* Background circle */}
-        <svg className="h-full w-full" viewBox={`0 0 ${size} ${size}`}>
-          <circle
-            className="text-primary/10"
-            strokeWidth={strokeWidth}
-            stroke="currentColor"
-            fill="transparent"
-            r={radius}
-            cx={size / 2}
-            cy={size / 2}
-          />
-          {/* Foreground circle that shows the progress */}
-          <motion.circle
-            className={getColor()}
-            strokeWidth={strokeWidth}
-            strokeDasharray={circumference}
-            initial={{ strokeDashoffset: circumference }}
-            animate={{ strokeDashoffset: inView ? offset : circumference }}
-            transition={{ duration: 1.5, delay: 0.2 * index, ease: "easeOut" }}
-            stroke="currentColor"
-            fill="transparent"
-            r={radius}
-            cx={size / 2}
-            cy={size / 2}
-            strokeLinecap="round"
-            style={{
-              transformOrigin: "center",
-              transform: "rotate(-90deg)",
-            }}
-          />
-        </svg>
-        {/* Percentage in the middle */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ duration: 0.5, delay: 0.3 + 0.1 * index }}
-            className="text-lg font-bold"
-          >
-            {level}%
-          </motion.span>
-        </div>
-      </div>
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
-        transition={{ duration: 0.5, delay: 0.4 + 0.1 * index }}
-        className="mt-2 text-center font-medium"
-      >
-        {name}
-      </motion.p>
-    </motion.div>
-  )
-}
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, scale: 0.8 }}
+//       animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.8 }}
+//       transition={{ duration: 0.5, delay: 0.1 * index }}
+//       className="flex flex-col items-center justify-center"
+//     >
+//       <div className="relative h-20 w-20">
+//         {/* Background circle */}
+//         <svg className="h-full w-full" viewBox={`0 0 ${size} ${size}`}>
+//           <circle
+//             className="text-primary/10"
+//             strokeWidth={strokeWidth}
+//             stroke="currentColor"
+//             fill="transparent"
+//             r={radius}
+//             cx={size / 2}
+//             cy={size / 2}
+//           />
+//           {/* Foreground circle that shows the progress */}
+//           <motion.circle
+//             className={getColor()}
+//             strokeWidth={strokeWidth}
+//             strokeDasharray={circumference}
+//             initial={{ strokeDashoffset: circumference }}
+//             animate={{ strokeDashoffset: inView ? offset : circumference }}
+//             transition={{ duration: 1.5, delay: 0.2 * index, ease: "easeOut" }}
+//             stroke="currentColor"
+//             fill="transparent"
+//             r={radius}
+//             cx={size / 2}
+//             cy={size / 2}
+//             strokeLinecap="round"
+//             style={{
+//               transformOrigin: "center",
+//               transform: "rotate(-90deg)",
+//             }}
+//           />
+//         </svg>
+//         {/* Percentage in the middle */}
+//         <div className="absolute inset-0 flex items-center justify-center">
+//           <motion.span
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: inView ? 1 : 0 }}
+//             transition={{ duration: 0.5, delay: 0.3 + 0.1 * index }}
+//             className="text-lg font-bold"
+//           >
+//             {level}%
+//           </motion.span>
+//         </div>
+//       </div>
+//       <motion.p
+//         initial={{ opacity: 0, y: 10 }}
+//         animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
+//         transition={{ duration: 0.5, delay: 0.4 + 0.1 * index }}
+//         className="mt-2 text-center font-medium"
+//       >
+//         {name}
+//       </motion.p>
+//     </motion.div>
+//   )
+// }
 
 export default function Skills() {
   const { ref, inView } = useInView({

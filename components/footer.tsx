@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { GithubIcon, LinkedinIcon, MailIcon, TwitterIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function Footer() {

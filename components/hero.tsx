@@ -3,17 +3,22 @@
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { ArrowDownIcon } from "lucide-react"
+
 import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, Environment, Sparkles } from "@react-three/drei"
 import { useTheme } from "next-themes"
-import { Suspense, useRef } from "react"
+import { JSX, Suspense, useRef } from "react"
 import type * as THREE from "three"
 
+
 // Enhanced Rocket Model component using basic Three.js geometries
-function RocketModel(props) {
-  const { theme } = useTheme()
+// function RocketModel(props:any) {
+
+function RocketModel(props: JSX.IntrinsicElements['group']) {
+
+const { theme } = useTheme()
   const isDark = theme === "dark"
   const primaryColor = isDark ? "#4e7bff" : "#1877f2"
   const secondaryColor = isDark ? "#a855f7" : "#9333ea"
@@ -173,7 +178,6 @@ function RocketModel(props) {
 }
 
 export default function Hero() {
-  const { theme } = useTheme()
 
   return (
     <section
