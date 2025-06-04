@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { AwardIcon, ExternalLinkIcon } from "lucide-react"
+import { AwardIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
 
