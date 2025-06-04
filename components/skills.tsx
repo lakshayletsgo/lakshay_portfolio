@@ -66,11 +66,8 @@ function SkillBar({ name, level, index, inView }: SkillBarProps) {
 
   // Generate a gradient color based on the skill level
   const getGradient = () => {
-    if (level >= 90) return "from-primary to-purple-500"
-    if (level >= 80) return "from-blue-500 to-primary"
-    if (level >= 70) return "from-cyan-500 to-blue-500"
-    return "from-sky-500 to-cyan-500"
-  }
+    return "from-primary to-purple-500"
+    }
 
   return (
     <div className="space-y-2">

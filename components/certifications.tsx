@@ -87,7 +87,9 @@ export default function Certifications() {
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
               >
                 <Card className="h-full overflow-hidden border-primary/10 backdrop-blur-sm bg-card/80 relative">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${certification.color} opacity-10`} />
+                  {/* <div className={`absolute inset-0 bg-gradient-to-br ${certification.color} opacity-10`} /> */}
+                  <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${certification.color} opacity-10`} />
+
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-bl-full" />
 
                   <CardHeader>
@@ -107,10 +109,13 @@ export default function Certifications() {
                       size="sm"
                       className="mt-4 self-start bg-gradient-to-r from-primary/10 to-purple-500/10 hover:from-primary/20 hover:to-purple-500/20 border-primary/20"
                     >
-                      <Link href={certification.link}>
-                        <ExternalLinkIcon className="mr-2 h-4 w-4" />
+                      <a
+                        href={certification.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         View Certificate
-                      </Link>
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
