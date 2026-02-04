@@ -8,6 +8,27 @@ import "react-vertical-timeline-component/style.min.css"
 import { useTheme } from "next-themes"
 
 const experiences = [
+   {
+    title: "AI Product Intern",
+    company: "Workfloww AI",
+    period: "October 2025 - Current",
+    location: "On Site",
+    description:
+      "Built AI-driven workflow automation features and backend pipelines to streamline HR processes.Developed scalable backend systems and database integrations (Supabase, SQL, APIs) and created web-based AI product with Next.js.",
+    icon: <BriefcaseIcon />,
+    skills: ["NextJs", "Node.js", "Python", "Git", "Agile","Python","VM Instances","N8N","PostgreSQL"],
+  },
+  {
+    title: "Web Developer Intern",
+    company: "UIG Geeks.",
+    period: "May 2025 - July 2025",
+    location: "Remote",
+    description:
+      "Built a SaaS product for applying custom watermarks on images with Shopify integration.Developed the frontend for an AI-powered customer support system, linking Shopify stores with external support platforms.",
+    icon: <BriefcaseIcon />,
+    skills: ["React", "Node.js", "MySQL", "Git", "Shopify", "Remix JS"],
+  },
+  
   {
     title: "Software Development Intern",
     company: "EGS Pvt. Ltd.",
