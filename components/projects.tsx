@@ -10,6 +10,17 @@ import Image from "next/image"
 import { useRef, useState } from "react"
 
 const projects = [
+  
+  {
+    title: "Quick Court",
+    description:
+      "Designed and Deployed a full stack web application that enables users to book local sports facilities and join or host matches. It uses a role-based modules for users, owners and admins with features like venue search, bookings and analytics dashboard..",
+    image: "/QuickCourt.png",
+    tags: ["NextJs", "NodeJS", "PostgreSQL", "PrismaORM","RAG"],
+    github: "https://github.com/lakshayletsgo/odoo-hackathon",
+    demo: "https://odoo-hackathon-virid.vercel.app/",
+    featured: true,
+  },
   {
     title: "Loan Fraud Detection using GNN",
     description:
